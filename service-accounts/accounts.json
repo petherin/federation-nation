@@ -10,5 +10,11 @@
     "name": "Alex Banks",
     "password": "$2b$10$4fkF68s2PmoI3t.c.z3hcu9xDRAKiuyxFollQiCHvWttNtm4Q3hnC",
     "created": "2019-10-25T03:07:08.521Z"
+  },
+  {
+    "email": "hello@hello.com",
+    "name": "Pete",
+    "password": "$2b$10$90Vkf1aY29tX6pLUmQG1wuduOsrp5wY9pfzQptmcsDGyYdOs0gIuq",
+    "created": "2022-10-17T13:41:18.991Z"
   }
 ]

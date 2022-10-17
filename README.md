@@ -88,3 +88,31 @@ npm i -g npm-check-updates
 ncu -u
 npm install
 ```
+
+In the SnowTooth task, could not successfully run ` npm install @apollo/subgraph` in the `trail` and `lift` folders. Got error:
+
+```
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: lift-graphql-api@1.0.0
+npm ERR! Found: graphql@15.8.0
+npm ERR! node_modules/graphql
+npm ERR!   graphql@"^15.7.2" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer graphql@"^16.5.0" from @apollo/subgraph@2.1.3
+npm ERR! node_modules/@apollo/subgraph
+npm ERR!   @apollo/subgraph@"*" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See /Users/pet01/.npm/eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/pet01/.npm/_logs/2022-10-17T13_59_18_793Z-debug-0.log
+```
+
+Fixed by updating all dependencies in those folders, as above for `service-colors`.
