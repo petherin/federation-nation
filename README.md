@@ -1,3 +1,4 @@
+
 <p align="center">
 <img src="https://cdn.worldvectorlogo.com/logos/apollo-graphql-compact.svg" width="100" alt="apollo logo" />
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/512px-GraphQL_Logo.svg.png" width="100" alt="graphql logo"/>
@@ -5,6 +6,8 @@
 </p>
 
 # Apollo GraphQL Federation Nation
+
+> These are the supporting files for https://www.youtube.com/watch?v=viN3z8FSvFI. There were some issues with the files so I forked and fixed.
 
 Welcome to the Apollo Federation Nation GraphQL Course. We are assuming that you found these files because you are in the course. However, if you found them by some other means, welcome as well!
 
@@ -68,3 +71,20 @@ You can also run the following npm commands:
 
 Additionally pm2 commands work: `pm2 flush`, `pm2 monit`, etc.
 
+## Issues
+
+After making `service-colors` GraphQL schema federated, the service would not start.
+
+To fix I updated my version of Node:
+
+```
+nvm install node
+```
+
+And updated all dependencies for `service-colors`:
+
+```
+npm i -g npm-check-updates
+ncu -u
+npm install
+```

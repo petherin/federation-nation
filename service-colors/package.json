@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
-    "apollo-server": "^3.5.0",
-    "graphql": "^15.7.2",
-    "shortid": "^2.2.15"
+    "@apollo/subgraph": "^2.1.3",
+    "apollo-server": "^3.10.3",
+    "graphql": "^16.6.0",
+    "shortid": "^2.2.16"
   }
 }
