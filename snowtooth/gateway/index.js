@@ -10,12 +10,11 @@ const gateway = new ApolloGateway({
 
 const start =  async() => {
     const server = new ApolloServer({
-        gateway,
-        subscriptions: false
+        gateway
     });
 
     server.listen(process.env.PORT).then(({ url }) => {
-       console.log(`The Snow Tooth Gateway is running at ${url}`); 
+       console.log(`⛷️  The Snow Tooth Gateway is running at ${url}`); 
     });
 }
 

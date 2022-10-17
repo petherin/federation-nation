@@ -12,7 +12,7 @@ const jwt = require("jsonwebtoken");
 const typeDefs = gql`
   scalar DateTime
 
-  type User {
+  type User @key(fields: "email") {
     email: ID!
     name: String!
     created: DateTime!
@@ -48,6 +48,11 @@ const resolvers = {
     me: (_, __, { currentUser }) => currentUser,
     accounts: (_, __, { findAllAccounts }) =>
       findAllAccounts()
+  },
+  User: {
+    __resolveReference({email}, {findAccount}) {
+        return findAccount(email);
+    }
   },
   Mutation: {
     async createAccount(_, { input }, { addAccount }) {

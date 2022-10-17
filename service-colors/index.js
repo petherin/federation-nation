@@ -10,7 +10,13 @@ const typeDefs = gql`
     title: String!
     value: String!
     created: DateTime!
+    createdBy: User!
   }
+
+extend type User @key(fields: "email") {
+    email: ID! @external
+    postedColors: [Color!]!
+}
 
   type Query {
     totalColors: Int!
@@ -23,6 +29,10 @@ const resolvers = {
     totalColors: (_, __, { countColors }) => countColors(),
     allColors: (_, __, { findColors }) => findColors(),
   },
+  User: {
+    postedColors: ({email}, _, {findColors}) =>
+     findColors(email)
+}
 };
 
 const start = async () => {
