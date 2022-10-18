@@ -75,6 +75,8 @@ const start = async () => {
       findColors,
       addColor,
       findColor,
+      // Set currentUser on context to whatever's in the user-email header
+      currentUser: req.headers["user-email"]
     }),
   });
 
