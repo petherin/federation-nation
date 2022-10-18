@@ -116,9 +116,3 @@ npm ERR!     /Users/pet01/.npm/_logs/2022-10-17T13_59_18_793Z-debug-0.log
 ```
 
 Fixed by updating all dependencies in those folders, as above for `service-colors`.
-
-## Progress
-
-Added addColor mutation to color service, it returns an Error which is part of the new ErrorPayload union, which would return a Color if the current user was logged in. Next step is make sure that if we log in at the gateway, the returned token can be used by the services supplying the subgraphs.
-
-At https://youtu.be/viN3z8FSvFI?t=6267 in the video.
