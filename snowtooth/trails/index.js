@@ -2,8 +2,12 @@ const { ApolloServer, gql } = require("apollo-server");
 const trails = require("./trail-data.json");
 const { buildSubgraphSchema} = require("@apollo/subgraph");
 
+// If we want to use the Trail type in another service,
+// it should be made into an entity. Do this by specifying
+// an @key directive, in this case, the Trail's id. This can 
+// then be used in other services to look up Trails.
 const typeDefs = gql`
-  type Trail {
+  type Trail @key(fields: "id") {
     id: ID!
     name: String!
     status: TrailStatus!
@@ -35,6 +39,7 @@ const typeDefs = gql`
     setTrailStatus(id: ID!, status: TrailStatus!): Trail!
   }
 `;
+
 const resolvers = {
   Query: {
     allTrails: (root, { status }) =>
@@ -52,6 +57,13 @@ const resolvers = {
       return updatedTrail;
     },
   },
+// Add a new Trail resolver to find a trail based 
+// on a reference id. This lets another service find
+// a trail.
+  Trail: {
+    __resolveReference: reference =>
+        trails.find(trail => trail.id === reference.id)
+  }
 };
 
 const server = new ApolloServer({
